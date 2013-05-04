@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Folder system Document</title>
+<script type="text/javascript" src="../../../../wamp/www/API/jquery.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$("a").bind("click", function(e){
+		e.preventDefault();
+		var k = $(this).attr("href");
+		alert(k)
+		$("#frame1").attr("src", k);
+	});
+	window.parent.$('body').trigger('td').click(function(){
+		alert("hi")	
+	});
+
+	
+})
+
+</script>
+
+
+</head>
+
+<body>
+<a href="./">Click</a>
+<iframe align="left" id="frame1" width="500px" height="500px" src="">
+<script type="text/javascript">
+
+
+</script>
+
+</iframe>
+
+</body>
+</html>

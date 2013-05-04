@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Image Scroll Document</title>
+
+<style type="text/css">
+
+#slider{  width:500px; height:300px; overflow:hidden;  padding:0px; border-radius:10px; -moz-box-shadow:1px 2px 15px #CCC;  margin:auto; }
+#slider ul{ margin:0px; padding:0px;} 
+.tabs { width:500px; text-align:right;   margin:auto; position:relative; top:45px;}	
+.active { background:#09F; color:#FFF; -moz-border-radius:30px; }
+a { outline:none;  color:#333;  font-size:18px; text-decoration:none; -moz-border-radius:30px;  background:#FFF; padding:5px 10px; position:relative; z-index:1000; }
+</style>
+</head>
+<body>
+<script type="text/javascript" src="jquery.js" language="javascript" ></script>
+<script type="text/javascript" src="mahi_slideshow.js" language="javascript"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#slider").Mahi_Slider();
+	//alert("hi");
+});
+
+</script>
+<div class="tabs"> <a href="#">1</a> <a href="#">2</a> <a href="#">3</a> <a href="#">4</a> <a href="#">5</a> </div>
+<div id="slider">
+	<ul>
+        <li><img src="images/4.jpg" width="500" height="300" alt="image1" /></li>
+        <li><img src="images/2.jpg" width="500" height="300" alt="image1" /></li>
+        <li><img src="images/3.jpg" width="500" height="300" alt="image1" /></li>
+        <li><img src="images/1.jpg" width="500" height="300" alt="image1" /></li>
+        <li><img src="images/5.jpg" width="500" height="300" alt="image1" /></li>
+	</ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,18 @@
+html, body, h1, h2, h3, h4, h5, h6, span, a, p, table, tr, td, th,tbody, ul,li
+{ font-family:"Trebuchet MS", Arial, Helvetica, sans-serif; margin:0; padding:0; }
+
+#container
+{}
+.sub_container
+{ list-style:none;width:455px; position:relative; height:447px; background:url(images/main_wheel.png) fixed left top no-repeat; }
+.sub_container span
+{  cursor:pointer; position:absolute; width:60px; height:60px;}
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Folder system Document</title>
+</head>
+
+<body>
+<script type="text/javascript">
+function ShowAvailableDrives()
+{
+    document.write(GetDriveList());
+}
+
+function GetDriveList()
+{
+ var fso, s, n, e, x;
+ fso = new ActiveXObject("Scripting.FileSystemObject");
+ e = new Enumerator(fso.Drives);
+ s = "";
+ do
+ {
+   x = e.item();
+   s = s + x.DriveLetter;
+   s += ":-    ";
+   if (x.DriveType == 3)     n = x.ShareName;
+   else if (x.IsReady)     n = x.VolumeName;
+   else                     n = "[Drive not ready]";
+   s += n + "<br>";
+   e.moveNext();
+ }  while (!e.atEnd());
+ 
+ return(s);
+}
+
+</script>
+<P>
+<SCRIPT language=JavaScript> ShowAvailableDrives(); </SCRIPT>
+</P>
+
+
+
+</body>
+</html>

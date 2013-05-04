@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Select Document</title>
+<script type="text/javascript" language="javascript" src="js/jquery1.6.js" ></script>
+<style type="text/css">
+#select
+{ width:200px; background:#F3F3F3; border:none; position:absolute }
+
+
+</style>
+</head>
+
+<body>
+
+ 
+  
+  
+	<p><input type="text"  id="sel2" /></p>
+    
+	<p><input type="text"  id="sel3" /></p>
+    <p><div><input type="text"  id="sel" /></div>
+        <select name="sele" id="select" multiple="multiple" style="display:none">
+            <option selected="selected">India</option>
+            <option>Iran</option>
+            <option>Iraq</option>
+            <option>America</option>
+            <option>Africa</option>
+            <option>Australia</option>
+      </select>
+	</p>
+	<p><input type="text"  id="sel4" /></p>
+    
+	<p><input type="text"  id="sel5" /></p>
+<script>
+$("#sel").focus(function(){
+	$("#select").show().focus().keypress()
+})
+$("#select").blur(function(){
+	$(this).hide()	
+})
+
+    $("select").change(function () {
+         
+         var str = $("select option:selected").text();
+		 var k = str.match(/[a-zA-Z0-9]/g);
+		 var p = str.charAt(0)
+		if(p == k[0]){
+			$("div input#sel").val(str);
+		}
+		else
+		{
+				$("select option:selected").text();
+		}
+          
+   })
+
+</script>
+
+
+</body>
+</html>

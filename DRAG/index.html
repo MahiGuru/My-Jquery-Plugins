@@ -1,0 +1,137 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="mDragable.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$(".dragDiv").widget({
+			isTitleEnabled : true,
+			title : "MyWidget Header1",
+			isDragable : true,
+			isResizable : true,
+			isMinimizeBtn : true,
+			isMaximizeBtn : true,
+			isCloseBtn : true
+		});
+		$(".dragDiv2").widget({
+			isTitleEnabled : true,
+			title : "MyWidget Header2",
+			isDragable : true,
+			isResizable : true,
+			isMinimizeBtn : true,
+			isMaximizeBtn : true,
+			isCloseBtn : true
+		});
+		
+	})
+
+</script>
+<style>
+body
+{ font-family:Arial, Helvetica, sans-serif; margin:0; padding:0; position:relative}
+.container
+{
+	position:relative;
+	width:100%;	
+}
+.dragDiv, .dragDiv2
+{
+	width:300px;
+	height:300px;
+	padding:10px;
+	background:#333;
+	position:relative;
+	color:#FFF;
+	margin:0px;
+	padding:0px;
+	float:left;
+	margin-right:20px;
+}
+.dragDiv2
+{
+	background:#CCC;
+		
+}
+.resize
+{
+	background:#CCFF00;
+	padding:5px;
+	width:10px;
+	height:10px;
+	position:absolute;
+	bottom:0;
+	right:0;
+	cursor:nw-resize;
+
+}
+.dragTitle
+{
+	margin:0;
+	width:65%;
+	height:40px;
+	float:left;	
+	font-size:16px;
+	cursor:move;
+	padding:5px;
+}
+.widgetHeader
+{
+	margin:0;
+	width:100%;
+	height:40px;
+	float:left;	
+	font-size:16px;
+	cursor:move;	
+	
+}
+.topBtnArea
+{
+	width:30%;
+	height:40px;
+	float:right;
+}
+
+.minimize
+{
+	width:20px;
+	height:20px;
+	float:right;
+	background:#06F;
+	cursor:pointer;
+}
+.maximize
+{
+	width:20px;
+	height:20px;	
+	float:right;
+	background:#093;
+	cursor:pointer;
+}
+.close
+{
+	width:20px;
+	height:20px;
+	background:#F00;	
+	float:right;
+	cursor:pointer;
+}
+</style>
+
+
+</head>
+
+<body>
+<div class="container">
+		<div class="dragDiv">
+		</div>
+		
+		<div class="dragDiv2">
+		</div>
+		
+</div>
+
+</body>
+</html>

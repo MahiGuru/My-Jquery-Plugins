@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="content-type" content="text/html; charset=iso-8859-1">
+<!--[if lt IE 8]>
+<script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE8.js"></script>
+<![endif]-->
+<title>One Alliance Document</title>
+<style type="text/css">
+body{ font-family:Arial, Helvetica, sans-serif; font-size:12px; margin:0; padding:0}
+.links
+{ width:40%; float:left }
+#message
+{ width:58%; padding:5px; float:left }
+a{ color:#FFF;text-decoration:none }
+#input_cal, #events_cal, #show_events_cal 
+{ padding:5px; margin:5px; background:#09F; width:99%; float:left }
+#input_cal:hover, #events_cal:hover, #show_events_cal:hover, 
+{ background:#FC0 } 
+#input_cal.inp_active, #events_cal.inp_active, #show_events_cal.inp_active { background:#FC0 }  
+</style>
+</head>
+
+<body>
+<script type="text/javascript" language="javascript" src="js/jquery1.6.js" ></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	
+	$("#input_cal").click(function(){
+		$("#message").empty()	
+		$("a").removeClass("inp_active")
+		$("#message").load("input_calendar.html")	
+		$(this).addClass("inp_active");
+	});
+	$("#events_cal").click(function(){
+		$("#message").empty()	
+		$("a").removeClass("inp_active")
+		$("#message").load("Calendar_evt_slide.html")
+		$(this).addClass("inp_active");
+	})
+	$("#show_events_cal").click(function(){
+		$("#message").empty()
+		$("a").removeClass("inp_active")
+		$("#message")	.load("EVENT_CALENDAR_NUM.html")
+		$(this).addClass("inp_active");
+	})
+});
+</script>
+<div class="links">
+    <a href="#" id="input_cal">Input Calendar</a> 
+    <a href="#" id="events_cal">Events Calendar</a>
+    <a href="#" id="show_events_cal">Show Event Dates with Calendar</a>
+</div>
+<div id="message"></div>
+
+
+
+</body>
+</html>

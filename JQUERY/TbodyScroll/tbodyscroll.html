@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="robots" content="noindex, nofollow">
+<title>tbodyScroll jQuery plugin: demo</title>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
+<script type="text/javascript" src="jquery.tbodyscroll.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+    $('.example1').tbodyScroll({
+        thead_height:   '30px',
+        tbody_height:   '60px',
+        tfoot_height:   '20px',
+        head_bgcolor:   'transparent',
+        foot_bgcolor:   'transparent'
+    });
+    
+
+});
+</script>
+
+<style type="text/css">
+.example            { float: left; clear: both; margin: 20px; padding: 0; }
+pre                 { float: right; margin: 0; padding: 0 0 0 20px; font-size: 12px; }
+
+.example th,
+.example td         { font-size: 14px; }
+.example th.some,
+.example td.some    { width: 120px; }
+.example th.other,
+.example td.other   { width: 150px; }
+.example th         { background-color: gray; }
+
+.example3           { border-collapse: collapse; }
+
+.example4           { border-collapse: collapse; }
+.example4 thead th  { background-color: blue; }
+.example4 tfoot th  { background-color: green; }
+
+.example5 th        { background-color: transparent; }
+div.outer           { float: left; border: 2px solid red; }
+
+.example6 *         { margin: 0; padding: 0; }
+.example6           { border-collapse: collapse; }
+</style>
+
+</head>
+<body>
+
+
+<div class="example">
+
+    <table class="example1">
+    <thead>
+        <tr><th class="some">some header</th>
+            <th class="other">other header</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td class="some">some 1</td>
+            <td class="other">other 1</td>
+        </tr>
+        <tr><td class="some">some 2</td>
+            <td class="other">other 2</td>
+        </tr>
+        <tr><td class="some">some 3</td>
+            <td class="other">other 3</td>
+        </tr>
+        <tr><td class="some">some 4</td>
+            <td class="other">other 4</td>
+        </tr>
+        <tr><td class="some">some 5</td>
+            <td class="other">other 5</td>
+        </tr>
+    </tbody>
+  
+    </table>
+</div>
+
+
+</body>
+</html>

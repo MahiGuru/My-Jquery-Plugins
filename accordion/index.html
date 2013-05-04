@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title> accordion Document</title>
+<style type="text/css">
+	.accordion{ width:500px; font-family:Arial, Helvetica, sans-serif; }
+	.accordion_heading{ background:#333333; color:#FFF; font-size:14px;  margin:2px 0; padding:8px 8px 4px 4px;}
+	.content{ font-family:Arial, Helvetica, sans-serif; font-size:12px; }
+	.active	{ background:#FF0000; }
+</style>
+
+
+</head>
+
+<body>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$(".content").hide();
+		$(".content:first").show();
+		$("h2:first").addClass("active");
+		$(".content").each(function(index)
+		{
+			$(this).attr("id", "acc_"+index);
+		});
+		$("h2").each(function(index){
+				var  create_id = $(this).attr("id", "heading_"+index);
+				var getID = create_id.attr("id");
+				var spl_id = getID.split("_")[1];
+				$(this).bind("click", function(){
+					$("h2").removeClass("active");
+					$(".content").hide();
+					$("#acc_"+spl_id).slideDown().show();
+					
+					
+					$(this).addClass("active");
+				});
+				
+				
+				
+		});
+		
+		var cont = $("h2").length;
+		//alert(cont);
+			
+		
+		
+	});
+
+</script>
+<div class="accordion">
+	<h2 class="accordion_heading">This is Heading</h2>
+    <div class="content">this is 1st content<br />
+		this is content line3<br />
+		this is content line4<br />
+		this is content line5
+    </div>
+	<h2 class="accordion_heading">This is heading 2</h2>
+	<div class="content">this is content<br />
+		this is content line3<br />
+		this is content line4<br />
+		this is content line5
+    </div>
+	<h2 class="accordion_heading">This is heading 3</h2>
+	<div class="content">this is content<br />
+		this is content line3<br />
+		this is content line4<br />
+		this is content line5
+    </div>
+	<h2 class="accordion_heading">This is heading 4</h2>
+	<div class="content">this is content<br />
+		this is content line3<br />
+		this is content line4<br />
+		this is content line5
+    </div>
+	
+
+
+
+
+</div>
+</body>
+</html>

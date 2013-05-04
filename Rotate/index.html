@@ -1,0 +1,163 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Untitled Document</title>
+    <script type="text/javascript" src="jquery.js"></script>
+    <script type="text/javascript" src="jquery-rotate-0.2.js"></script>
+    <script type="text/javascript" src="shape_MAHI.js"></script>
+    <style type="text/css">
+        html, body
+        {
+            height: 100%;
+            overflow: hidden;
+        }
+        #container
+        {
+            width: 382px;
+            height: 381px;
+            margin: 200px;
+            position: relative;
+        }
+        .bgLayer
+        {
+            background: url(bgImg.png) left top no-repeat;
+            width: 100%;
+            height: 100%;
+        }
+        .maskLayer, .maskBackground, .circleMove
+        {
+            position: absolute;
+            background: url(hoverImg.png) left top no-repeat;
+            width: 382px;
+            height: 381px;
+            opacity: 0.9;
+            top: 0;
+        }
+        .maskLayer.maskBackground
+        {
+            background: #FFF;
+        }
+        .circleMove
+        {
+            background: url(loader.gif) left top no-repeat;
+            top: 50px;
+            left: 50px;
+        }
+        .maskLayerArrow
+        {
+            position: absolute;
+            background: url(hoverImg_Arrow.png) left top no-repeat;
+            width: 382px;
+            height: 381px;
+            opacity: 0.9;
+            top: 0;
+        }
+        .indiaFlag
+        {
+            width: 300px;
+            height: 200px;
+            float: left;
+            background: url(IndiaFlag.gif) left top no-repeat;
+            position: absolute;
+            top: 10%;
+            left: 25%;
+            display: none;
+        }
+        .USFlag
+        {
+            width: 300px;
+            height: 200px;
+            float: left;
+            background: url(USAFlag.gif) left top no-repeat;
+            position: absolute;
+            top: 10%;
+            left: 25%;
+            display: none;
+        }
+        .oaTxtIndia, .oaTxtUS
+        {
+            width: 100%;
+            position: absolute;
+            top: 50%;
+            left: 30%;
+            display: none;
+        }
+        .link
+        {
+            width: 150px;
+            height: 80px;
+            position: absolute;
+            top: 0;
+            cursor: pointer;
+        }
+        .link1
+        {
+            left: 120px;
+        }
+        
+        .link2
+        {
+            left: 220px;
+            top: 90px;
+        }
+        .link3
+        {
+            left: 210px;
+            top: 190px;
+        }
+        .link4
+        {
+            left: 120px;
+            top: 280px;
+        }
+        .link5
+        {
+            left: 10px;
+            top: 190px;
+        }
+        .link6
+        {
+            left: 10px;
+            top: 90px;
+        }
+        
+    </style>
+</head>
+<body>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#container").Mahi_shape();
+        });
+
+    </script>
+    <div id="container">
+        <div class="bgLayer">
+        </div>
+        <div class="maskLayer">
+        </div>
+        <div class="maskLayerArrow">
+        </div>
+        
+        <div class="linksArea">
+            <span class="link link1" id="link_1" title="link1"></span><span class="link link2"
+                id="link_2" title="link2"></span><span class="link link3" id="link_3" title="link3">
+                </span><span class="link link4" id="link_4" title="link4"></span><span class="link link5"
+                    id="link_5" title="link5"></span><span class="link link6" id="link_6" title="link6">
+                    </span>
+        </div>
+        <div class="indiaFlag">
+        </div>
+        <div class="oaTxtIndia">
+            <h2>
+                One Alliance INDIA</h2>
+        </div>
+        <div class="USFlag">
+        </div>
+        <div class="oaTxtUS">
+            <h2>
+                One Alliance US</h2>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+<script type="text/javascript" src="jquery1.6.js" ></script>
+<script type="text/javascript" src="wheel.js" ></script>
+<style type="text/css">
+body
+{	font-family:Verdana, Geneva, sans-serif;	}
+.imges_area
+{ width:800px; height:380px; background:url(bg.gif) left bottom repeat-x; margin:auto }
+.imges_area .myimg
+{ position:absolute;   }
+</style>
+</head>
+
+<body>
+<script type="text/javascript">
+
+$(document).ready(function(){
+	$(".myimg").each(function(index)
+	{
+		$(this).attr("id", "img_"+(index+1))
+	});
+setTimeout(myfun, 10);
+	var ang = 0
+function myfun(){		
+	$(".myimg:eq(1)").rotate(ang += 5);
+	
+	if(ang >= 365 )
+	{
+		$(".myimg:eq(1)").rotate(ang -= 5);
+		
+	}
+	setTimeout(myfun, 10);
+}
+	$(".myimg:eq(0)").animate({'opacity':'0.25','margin-left':'10'}, 500).animate({'width':'0','height':'0', 'opacity':'1', 'margin-top' : '50px', 'margin-left' : '+=120px'}, 500).animate({'width':'221','height':'296','opacity':'1','margin-left':'80'}, 500);
+	$(".myimg:eq(1)").animate({'opacity':'1', 'margin-left' : '-=80px', 'margin-top':'80'}, 500).animate({'opacity':'1', 'margin-top' : '0px', 'margin-left' : '+=400px'}, 500).animate({'opacity':'1', 'margin-left' : '-=80px', 'margin-top':'180'});
+	$(".myimg:eq(2)").animate({'opacity':'1','margin-top':'200', 'margin-left' : '320px'}, 500).animate({'margin-top':'100','opacity':'0.25','margin-left' : '-=150px'}, 500).animate({'opacity':'1','margin-top':'230', 'margin-left' : '20px'}, 500);
+	$(".myimg:eq(3)").animate({'opacity':'100','margin-top':'150', 'margin-left' : '620px'}, 500).animate({'opacity':'0','margin-left' : '20px'}, 500).animate({'opacity':'1','margin-top':'50', 'margin-left' : '520px'}, 500);
+	
+});
+</script>
+
+
+<div class="imges_area">
+    <img class="myimg" src="1.png" alt="" width="221" height="296"/>
+    <img class="myimg"  src="2.png" alt="" width="252" height="174"/>
+    <img class="myimg"  src="3.png" alt="" width="194" height="130"/>
+    <img class="myimg"  src="4.png" alt="" width="294" height="193"/>
+</div>
+
+
+</body>
+</html>

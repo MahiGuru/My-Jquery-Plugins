@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="content-type" content="text/html; charset=iso-8859-1">
+<!--[if lt IE 8]>
+<script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE8.js"></script>
+<![endif]-->
+<title>One Alliance Document</title>
+<link href="css/input_style.css" type="text/css" rel="stylesheet" />
+</head>
+
+<body>
+<script type="text/javascript" language="javascript" src="js/jquery1.6.js" ></script>
+<script type="text/javascript" language="javascript" src="js/input_calendar.js" ></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$(".eve_cal").eve_calendar();
+	
+});
+</script>
+
+<div id="calendar"><!-- wrapper div start from here -->
+<form action="" class="form1">
+    <div class="input_div">
+        <input type="text" name="date_val" class="date_val" />
+        <span class="calendar_icon"><img src="images/cal.png" alt="images" /></span>
+        <div class="eve_cal"><!-- Calendar will add to this div -->      </div>
+    </div>
+
+</form>
+
+<div class="clear"></div>
+
+</div><!-- wrapper div end here -->
+
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Tree Document</title>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="masters.js"></script>
+</head>
+
+<body>
+<style type="text/css">
+
+.menu
+{ background:#CCEAF9; padding:5px; width:95%; float:left }
+.submenu
+{ background:#F2F2F2; padding:5px; margin-left:25px; display:none;  width:90%; float:left  }
+.sub-sub-menu
+{ margin-left:25px; padding:5px; background:#FFF; display:none; width:85%; float:left  }
+
+.wrapper
+{ width:500px; margin:auto }
+ul.menu
+{ list-style:none; padding:10px;  }
+ul.menu li
+{ list-style:none; padding:10px; padding-left:30px; }
+ul.menu li img
+{ float:left; padding:0 0px; }
+.plus
+{ background:url(plus.png) left center no-repeat; }
+
+.minus
+{ background:url(minus.png) left center no-repeat; }
+
+</style>
+<script type="text/javascript">
+$(document).ready(function(){
+		$("li").has("ul").addClass("plus");
+		$("li.plus").live("click", function(e){
+				e.stopPropagation();	
+				// Remove the Siblings Parent Li minus class because you clicked on Sibling Parent Li and added Plus classs
+				$(this).siblings().each(function(){
+					if($(this).hasClass("minus")){ $(this).removeClass("minus").addClass("plus"); 	};
+					$(this).find("ul").hide();		
+				})
+				// Remove the children minus class because you clicked on Sibling Parent Li and added Plus classs
+				$(this).siblings().find("li").has("ul").each(function(){
+					if($(this).hasClass("minus")){ $(this).removeClass("minus").addClass("plus"); 	};
+				})
+				// RemoveClass Plus and Replace with Minus class
+				$(this).removeClass("plus").addClass("minus")	
+				// show the Children UL
+				$(this).children("ul").show();
+		})
+		$("li.minus").live("click", function(e){
+				e.stopPropagation();	
+				$(this).removeClass("minus").addClass("plus")	
+				$(this).children("ul").hide();
+		})
+				
+		
+		
+		
+	
+})
+
+
+
+</script>
+
+
+<div class="wrapper">
+	<ul class="menu">
+    	<li>List - menu - 1
+   				<ul class="submenu">
+                	<li>List-Sub-Menu 1
+                    	<ul class="sub-sub-menu">
+                   			<li>Sub-Sub-List-Menu1
+                            		<ul class="sub-sub-menu">
+                                        <li>Sub-Sub-Sub-List-Menu1</li>
+                                        <li>Sub-Sub-Sub-List-Menu2</li>
+                                        <li>Sub-Sub-Sub-List-Menu3</li>
+                                        <li>Sub-Sub-Sub-List-Menu4</li>
+                                        <li>Sub-Sub-Sub-List-Menu5</li>
+                                    </ul>
+                            </li>
+                   			<li>Sub-Sub-List-Menu2</li>
+                   			<li>Sub-Sub-List-Menu3</li>
+                   			<li>Sub-Sub-List-Menu4</li>
+                   			<li>Sub-Sub-List-Menu5</li>
+                        </ul>
+                    </li>
+                	<li>List-Sub-Menu 2</li>
+                	<li>List-Sub-Menu 3</li>
+                	<li>List-Sub-Menu 4</li>
+                	<li>List-Sub-Menu 5</li>
+                
+                </ul>     
+        </li>
+    	<li>List - menu - 2</li>
+    	<li>List - menu - 3
+        	<ul class="submenu">
+                	<li>List-Sub-Menu 3
+                    	<ul class="sub-sub-menu">
+                   			<li>Sub-Sub-List-Menu1</li>
+                   			<li>Sub-Sub-List-Menu2</li>
+                   			<li>Sub-Sub-List-Menu3</li>
+                   			<li>Sub-Sub-List-Menu4</li>
+                   			<li>Sub-Sub-List-Menu5</li>
+                        </ul>
+                    </li>
+                	<li>List-Sub-Menu 2</li>
+                	<li>List-Sub-Menu 3</li>
+                	<li>List-Sub-Menu 4</li>
+                	<li>List-Sub-Menu 5</li>
+                
+                </ul>     
+        
+        </li>
+    	<li>List - menu - 4</li>
+    	<li>List - menu - 5</li>
+    </ul>
+
+
+</div>
+
+
+
+</body>
+</html>

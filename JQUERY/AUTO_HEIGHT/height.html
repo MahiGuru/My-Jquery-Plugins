@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>screen height Document</title>
+
+<script type="text/javascript" src="jquery.js" ></script>
+<script type="text/javascript" src="hieght_plugin.js" ></script>
+<style type="text/css">
+body
+{ overflow:hidden; }
+.side_bar
+{ width:400px; font-family:Arial, Helvetica, sans-serif; font-size:90%; height:900px;}
+.col1
+{ width:98%; padding:10px; background:#FAFFE6; border:#FEF9DA solid 2px; border-radius:10px; margin:5px;  }
+.col2
+{ width:98%; padding:10px; background:#F2F2F2; border:#EBEBEB solid 2px; border-radius:10px; margin:10px 5px; }
+ul.menu
+{ width:100%; list-style:none; margin:0; padding:0 }
+ul.menu li
+{ padding:5px; width:100%; cursor:pointer;  }
+ul.menu li ul
+{ width:80%; }
+ul.menu li ul li
+{ padding:5px; width:100%; clear:both; }
+
+
+
+
+</style>
+</head>
+
+<body>
+<script type="text/javascript">
+$(document).ready(function(){
+	$("side_bar").Mahi_heights();
+});
+
+</script>
+<div class="side_bar">
+	<div class="col1"><!-- 1st col div start here --->
+			<ul class="menu">
+				<li>Link-1</li>
+				<li class="hide_1"> + Link-2
+					<ul>
+						<li>Link-inner-1</li>
+						<li>Link-inner-2</li>
+						<li>Link-inner-3</li>
+						<li>Link-inner-4</li>
+					</ul>
+				</li>
+				<li>Link-3</li>
+				<li class="hide_2"> + Link-4
+					<ul>
+						<li>Link-inner-1</li>
+						<li>Link-inner-2</li>
+						<li>Link-inner-3</li>
+						<li>Link-inner-4</li>
+					</ul>
+				</li>
+				<li class="hide_3"> + Link-5
+					<ul>
+						<li>Link-inner-1</li>
+						<li>Link-inner-2</li>
+						<li>Link-inner-3</li>
+						<li>Link-inner-4</li>
+						<li>Link-inner-5</li>
+						<li>Link-inner-6</li>
+						<li>Link-inner-7</li>
+						<li>Link-inner-8</li>
+						<li>Link-inner-9</li>
+						<li>Link-inner-10</li>
+						<li>Link-inner-11</li>
+						<li>Link-inner-12</li>
+					</ul>
+				</li>
+			
+			</ul>
+			<div style="clear:both"></div>
+	</div><!-- 1st col div END here --->
+	<div class="col2"><!-- 2nd col div start here --->
+			
+			<ul class="menu">
+				<li>Link-1</li>
+				<li class="2_hide"> + Link-2
+					<ul>
+						<li>Link-inner-1</li>
+						<li>Link-inner-2</li>
+						<li>Link-inner-3</li>
+						<li>Link-inner-4</li>
+					</ul>
+				</li>
+				<li>Link-3</li>
+				<li>Link-4</li>
+				<li class="3_hide"> + Link-5
+					<ul>
+						<li>Link-inner-1</li>
+						<li>Link-inner-2</li>
+						<li>Link-inner-3</li>
+						<li>Link-inner-4</li>
+						<li>Link-inner-5</li>
+						<li>Link-inner-6</li>
+						<li>Link-inner-7</li>
+						<li>Link-inner-8</li>
+						<li>Link-inner-9</li>
+						<li>Link-inner-10</li>
+						
+					</ul>
+				</li>
+			
+			</ul>
+			<div style="clear:both"></div>
+			
+			
+	
+	
+	</div><!-- 2nd col div END here --->
+
+
+
+
+</div>
+</body>
+</html>

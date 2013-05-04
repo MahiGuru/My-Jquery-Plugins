@@ -1,0 +1,156 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+<script type="text/javascript" src="jquery.js"></script>
+<style type="text/css">
+body
+{font-family:Arial, Helvetica, sans-serif;  margin:0; padding:0; font-size:12px;}
+.container
+{ width:600px; margin:auto; }
+.clear
+ {  clear:both}
+
+#grid_table
+{ padding:5px; font-size:12px; border-collapse:collapse; width:100%; }
+#pagination
+{ padding:5px; text-align:center; width:100%; margin-top:10px;}
+.row
+{ margin-bottom:10px; width:100% }
+.buttons
+{ width:50%; float:left; padding:5px; margin-bottom:10px;}
+.buttons a
+{ padding:5px; background:#666; border-radius:5px; color:#FFF; -moz-border-radius:5px; font-size:12px; text-decoration:none; margin-right:5px; }
+.filter_area
+{ width:40%; float:right; text-align:right;  }
+#grid_table tr th
+{ color:#FFF; font-weight:normal; background:#036; padding:10px; }
+#grid_table tr td
+{ padding:10px; }
+#grid_table tr
+{ background:#EAD9FF; padding:10px; }
+.pager_num
+{ padding:5px 10px; background:#E8E8E8; -moz-border-radius:10px; border-radius:10px; margin:2px; border:#666 solid 1px; cursor:pointer }
+.p_active
+{ background:#39F; color:#FFF; cursor:text }
+
+</style>
+
+</head>
+
+<body>
+<script type="text/javascript">
+$(document).ready(function(){
+	
+var tr, show_per_page, per_page, pager, prev, temp_arr, myd
+temp_arr = []
+
+var mydata = [ {id:"1",date:"2007-10-01",name:"test",note:"note",amount:"200.00",tax:"10.00",total:"210.00"}, {id:"2",date:"2007-10-02",name:"test2",note:"note2",amount:"300.00",tax:"20.00",total:"320.00"}, {id:"3",date:"2007-09-01",name:"test3",note:"note3",amount:"400.00",tax:"30.00",total:"430.00"}, {id:"4",date:"2007-10-04",name:"test",note:"note",amount:"200.00",tax:"10.00",total:"210.00"}, {id:"5",date:"2007-10-05",name:"test2",note:"note2",amount:"300.00",tax:"20.00",total:"320.00"}, {id:"6",date:"2007-09-06",name:"test3",note:"note3",amount:"400.00",tax:"30.00",total:"430.00"}, {id:"7",date:"2007-10-04",name:"test",note:"note",amount:"200.00",tax:"10.00",total:"210.00"}, {id:"8",date:"2007-10-03",name:"test2",note:"note2",amount:"300.00",tax:"20.00",total:"320.00"}, {id:"9",date:"2007-09-01",name:"test3",note:"note3",amount:"400.00",tax:"30.00",total:"430.00"}, {id:"10",date:"2007-10-01",name:"test",note:"note",amount:"200.00",tax:"10.00",total:"210.00"}, {id:"11",date:"2007-10-02",name:"test2",note:"note2",amount:"300.00",tax:"20.00",total:"320.00"}, {id:"12",date:"2007-09-01",name:"test3",note:"note3",amount:"400.00",tax:"30.00",total:"430.00"}, {id:"13",date:"2007-09-01",name:"test3",note:"note3",amount:"400.00",tax:"30.00",total:"430.00"}, {id:"14",date:"2007-10-04",name:"test",note:"note",amount:"200.00",tax:"10.00",total:"210.00"}, {id:"15",date:"2007-10-05",name:"test2",note:"note2",amount:"300.00",tax:"20.00",total:"320.00"}, {id:"16",date:"2007-09-06",name:"test3",note:"note3",amount:"400.00",tax:"30.00",total:"430.00"}, {id:"17",date:"2007-10-04",name:"test",note:"note",amount:"200.00",tax:"10.00",total:"210.00"}, {id:"18",date:"2007-10-03",name:"test2",note:"note2",amount:"300.00",tax:"20.00",total:"320.00"}, {id:"19",date:"2007-09-01",name:"test3",note:"note3",amount:"400.00",tax:"30.00",total:"430.00"},{id:"20",date:"2007-09-01",name:"test3",note:"note3",amount:"400.00",tax:"30.00",total:"430.00"}, {id:"21",date:"2007-10-01",name:"test",note:"note",amount:"200.00",tax:"10.00",total:"210.00"}, {id:"22",date:"2007-10-02",name:"test2",note:"note2",amount:"300.00",tax:"20.00",total:"320.00"}, {id:"23",date:"2007-09-01",name:"test3",note:"note3",amount:"400.00",tax:"30.00",total:"430.00"}, {id:"24",date:"2007-10-04",name:"test",note:"note",amount:"200.00",tax:"10.00",total:"210.00"}, {id:"25",date:"2007-10-05",name:"test2",note:"note2",amount:"300.00",tax:"20.00",total:"320.00"}, {id:"26",date:"2007-09-06",name:"test3",note:"note3",amount:"400.00",tax:"30.00",total:"430.00"}, {id:"27",date:"2007-10-04",name:"test",note:"note",amount:"200.00",tax:"10.00",total:"210.00"}, {id:"28",date:"2007-10-03",name:"test2",note:"note2",amount:"300.00",tax:"20.00",total:"320.00"}, {id:"29",date:"2007-09-01",name:"test3",note:"note3",amount:"400.00",tax:"30.00",total:"430.00"}, {id:"30",date:"2007-10-01",name:"test",note:"note",amount:"200.00",tax:"10.00",total:"210.00"}, {id:"31",date:"2007-10-02",name:"test2",note:"note2",amount:"300.00",tax:"20.00",total:"320.00"}, {id:"32",date:"2007-09-01",name:"test3",note:"note3",amount:"400.00",tax:"30.00",total:"430.00"}, {id:"33",date:"2007-09-01",name:"test3",note:"note3",amount:"400.00",tax:"30.00",total:"430.00"}, {id:"34",date:"2007-10-04",name:"test",note:"note",amount:"200.00",tax:"10.00",total:"210.00"}, {id:"35",date:"2007-10-05",name:"test2",note:"note2",amount:"300.00",tax:"20.00",total:"320.00"}, {id:"36",date:"2007-09-06",name:"test3",note:"note3",amount:"400.00",tax:"30.00",total:"430.00"}, {id:"37",date:"2007-10-04",name:"test",note:"note",amount:"200.00",tax:"10.00",total:"210.00"}, {id:"38",date:"2007-10-03",name:"test2",note:"note2",amount:"300.00",tax:"20.00",total:"320.00"}, {id:"39",date:"2007-09-01",name:"test3",note:"note3",amount:"400.00",tax:"30.00",total:"430.00"}, {id:"40",date:"2007-10-05",name:"test2",note:"note2",amount:"300.00",tax:"20.00",total:"320.00"} , {id:"41",date:"2007-09-01",name:"test3",note:"note3",amount:"400.00",tax:"30.00",total:"430.00"}, {id:"42",date:"2007-10-05",name:"test2",note:"note2",amount:"300.00",tax:"20.00",total:"320.00"}];
+//alert(mydata.length)
+
+start_count=0; //dataload intializer
+paging_start=0; //Pagination intializer
+show_per_page = 10; // showperpage 
+myd= mydata; // Assigning the data to myd 
+
+dataload();
+paginate();
+
+function dataload(){
+	$("#grid_table tbody").empty();
+	if(myd.length == 0) {$(".norecords").show() }
+	else {$(".norecords").hide() ; 
+		if(show_per_page >= myd.length){ show_per_page = myd.length }
+		while(start_count < show_per_page)
+		{
+			tr = "<tr>";
+			tr += "<td>"+myd[start_count].id+"</td><td>"+myd[start_count].date+"</td><td>"+myd[start_count].name+"</td><td>"+myd[start_count].amount+"</td><td>"+myd[start_count].tax+"</td><td>"+myd[start_count].note+"</td><td>"+myd[start_count].total+"</td>";
+			tr += "</tr>";
+			$("#grid_table tbody").append(tr)
+			start_count++;	//increase the count 
+		}
+	}
+} // dataload function end here .......
+
+/******************** pagination Script here ********************/
+
+function paginate(){
+	$("#pagination").empty();
+	per_page = Math.ceil(myd.length/show_per_page);
+	
+	while(paging_start< per_page)
+	{
+			pager = "<a class='pager_num'>"+(paging_start+1)+"</a>";
+			$("#pagination").append(pager);
+			paging_start++;
+	}
+	$(".pager_num:first").addClass("p_active");
+	$(".pager_num").live("click", function(){
+			$(".pager_num").removeClass("p_active");
+			start_count = (parseInt($(this).text())*10)-10
+			show_per_page = start_count+10;
+			//alert(start_count+", "+show_per_page);
+			$(this).addClass("p_active")	;
+			dataload();
+	})
+
+}// paginate function end here .......
+
+
+
+/***************************************  Filter Function Script here *******************/
+$("#filter_val").blur(function(){
+	fval = $("#filter_val").val()
+	temp_arr.splice(0)
+	for(i=0; i<mydata.length; i++)
+	{
+		if(mydata[i].name == 	fval)
+		{	console.log(mydata[i].name +"=="+ 	fval+" == "+ mydata[i])
+				temp_arr.push(mydata[i])
+		}
+		if(fval == '')
+		{
+			temp_arr.push(mydata[i])
+		}
+	}
+	
+	myd= temp_arr
+	start_count = 0;
+	paging_start = 0;
+	show_per_page = 10;
+	dataload();
+	paginate();
+})
+
+
+}) // document ready function end here .....
+
+</script>
+
+<div class="container">
+<div class="row">
+	<div class="buttons"><a href="#" class="add_btn">Add</a><a href="#" class="print_btn">Print</a><a href="#" class="delete_btn">Delete</a></div>
+    <div class="filter_area">Quick Filter : <input type="text" name="filt_name" id="filter_val" value="eg: test" /></div>
+</div><br class="clear" />
+<table id="grid_table">
+	<thead>
+    	<tr>
+        	<th>ID</th>
+            <th>Date</th>
+            <th>Name</th>
+            <th>Amount</th>
+            <th>Tax</th>
+            <th>Notes</th>
+            <th>Total</th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+<div class="norecords" style="display:none">No Results found</div>
+<div id="pagination"></div>
+
+</div><!-- container div end here....-->
+
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Untitled Document</title>
+<style type="text/css">
+.container
+{ width:400px; margin:auto; font-family:Arial, Helvetica, sans-serif; background:#333333; border-radius:10px; color:#FFFFFF; padding:0 5px 5px 5px; -moz-border-radius:10px; -webkit-border-radius:10px; border:#0099FF solid 5px; border-top:none; }
+ul.menu
+{ width:100%; list-style:none; float:left; margin:0px; }
+li.normal
+{ margin:5px; margin:0; padding:10px; float:left; color:#FFFFFF; background:#333333; cursor:pointer; }
+li.active
+{ background:#0099FF; border-radius:0 0 10px 10px; border:#E6F2FF solid 1px; border-bottom:#FFF solid 2px; border-top:none; }
+div.page
+{ width:100%; float:left; padding:5px; }
+
+</style>
+<script type="text/javascript" src="jquery.js" ></script>
+<script type="text/javascript">
+(function($){
+	$.fn.myTabs = function(options, elements){
+		var elements;
+		var settings = {
+			divClass : "page",
+			div_id : "show",
+			li_id : "list",
+			li_class : "normal",
+			slide : "slideUp"
+			
+		}
+		var defaults = $.extend(settings, options);
+		var li_find = $(this).find("li");
+		var liClass = li_find.addClass(defaults.li_class);
+		$("li."+defaults.li_class+":eq(0)").addClass("active");
+		//div Script Start form here 
+		var div_find = $(this).find("."+defaults.divClass);
+		$(div_find).hide();
+		$("div."+defaults.divClass+":eq(0)").show();
+		var page_inc_id = 1;
+		$(div_find).each(function(){
+			$(this).attr("id",defaults.div_id+"_"+page_inc_id);
+			page_inc_id++;
+		})
+		//div Script END here 
+		var inc_id = 1;
+		$(li_find).each(function(){
+			$(this).attr("id",defaults.li_id+"_"+inc_id);
+			inc_id++;
+			
+			$(this).click(function(){
+				li_find.removeClass("active");
+				$(this).addClass("active");
+				$(div_find).hide();
+				//alert(div_find);
+				var id_spl = this.id.split("_")[1];
+				//alert(id_spl);	
+				$("#"+defaults.div_id+"_"+id_spl).show();
+			});	
+		
+		});
+	
+	
+	};
+})(jQuery);
+
+$(document).ready(function(){
+	$(".container").myTabs({ divClass:"page",li_class:"normal" });
+});
+</script>
+
+</head>
+
+<body>
+<div class="container">
+	<ul class="menu">
+		<li>Link-1</li>
+		<li>Link-2</li>
+		<li>Link-3</li>
+		<li>Link-4</li>
+	</ul>
+	<div class="page">
+	<div>
+	<h3>This is first heading</h3>
+		<p>The styling is incredibly simple, and I would like to encourage you to get creative with this for your own projects. The tooltip is hidden by default, then triggered by jQuery to show it on hover. We give it an absolute position and a z-index of 1000 to make sure it stays at the top layer of your elements.</p>
+	</div></div>
+	<div class="page">
+	<h3>This is Second heading</h3>
+		<p>
+			The styling is incredibly simple, and I would like to encourage you to get creative with this for your own projects. The tooltip is hidden by default, then triggered by jQuery to show it on hover. We give it an absolute position and a z-index of 1000 to make sure it stays at the top layer of your elements.
+		</p>
+	</div>
+	<div class="page">
+	<h3>This is third heading</h3>
+		<p>The styling is incredibly simple, and I would like to encourage you to get creative with this for your own projects. The tooltip is hidden by default, then triggered by jQuery to show it on hover. We give it an absolute position and a z-index of 1000 to make sure it stays at the top layer of your elements.</p>
+	</div>
+	<div class="page">
+	<h3>This is fourth heading</h3>
+		<p>The styling is incredibly simple, and I would like to encourage you to get creative with this for your own projects. The tooltip is hidden by default, then triggered by jQuery to show it on hover. We give it an absolute position and a z-index of 1000 to make sure it stays at the top layer of your elements.</p>
+	</div>
+	
+	
+	
+<div style="clear:both"></div>	
+</div>
+</body>
+</html>

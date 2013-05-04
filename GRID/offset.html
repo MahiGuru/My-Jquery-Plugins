@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <style>
+        #container {
+            width: 350px;
+            height: 150px;
+            margin:auto;
+            border: 2px solid red;
+            padding: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        The width of this element is 350px<br />
+        The height of this element is 150px<br />
+        Furthermore, the element has the following style definitions:<br />
+        margin: 10px; border: 2px solid red; padding: 15px;
+    </div>
+    <button onclick="GetContainerSize ();">Get the size of the container!</button>
+
+
+
+    <script type="text/javascript"> 
+	var container = document.getElementById ("container");;
+	alert(container.offsetLeft)
+        function GetContainerSize () {
+            var message = "The height with padding: " + container.clientHeight + "px.\n";
+            message += "The height with padding and border: " + container.offsetLeft + "px.\n";
+
+            message += "The width width padding: " + container.clientWidth + "px.\n";
+            message += "The width with padding and border: " + container.offsetWidth + "px.\n";
+
+            alert (message);
+        }
+    </script>
+
+
+</body>
+</html>
+

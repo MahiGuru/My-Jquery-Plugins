@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Tree Document</title>
+<script type="text/javascript" src="jquery.js"></script>
+</head>
+
+<body>
+<style type="text/css">
+.container
+{ margin:auto; width:500px; font-family:Arial, Helvetica, sans-serif; }
+.container img
+{ position:relative; float:left; cursor:pointer }
+.menu
+{ background:#CCC; padding:5px; width:100%; float:left }
+.submenu
+{ background:#F2F2F2; padding:5px; margin-left:25px; display:none;  width:100%; float:left  }
+.sub-sub-menu
+{ margin-left:25px; padding:5px; background:#FFF; display:none; width:100%; float:left  }
+</style>
+<script type="text/javascript">
+$(document).ready(function(){
+		$(".container div").live("click", function(e){
+				e.stopPropagation();
+				$(this).children("div").toggle()
+		});
+		$(".container div img").live("click", function(e){
+				e.stopPropagation();
+				$(this).parent().children("div").toggle();
+				($(this).attr("src") == "minus.png") ? 	$(this).attr("src", "plus.png") : $(this).attr("src", "minus.png")
+				
+		});
+	
+})
+
+
+
+</script>
+<div class="container">
+	<div class="menu"><img src="plus.png" /> Menu1 
+    	<div class="submenu"><img src="plus.png" /> Submenu1
+        	<div class="sub-sub-menu"> Sub- sub- menu1
+                        <div class="sub-sub-menu"> SUB-Sub- sub- menu1</div>
+                    <div class="sub-sub-menu"> SUB- Sub- sub- menu2</div>
+                    <div class="sub-sub-menu"> SUB-Sub- sub- menu3</div>
+                    <div class="sub-sub-menu"> SUB-Sub- sub- menu4</div>
+            
+            </div>
+            <div class="sub-sub-menu"> Sub- sub- menu2</div>
+            <div class="sub-sub-menu"> Sub- sub- menu3</div>
+            <div class="sub-sub-menu"> Sub- sub- menu4</div>
+        </div>
+        <div class="submenu"><img src="plus.png" /> Submenu2 </div>
+    </div>
+    <div class="menu"><img src="plus.png" /> Menu2
+    	<div class="submenu"><img src="plus.png" />Submenu2</div>
+    </div>
+    <div class="menu"><img src="plus.png" /> Menu3</div>
+    <div class="menu"><img src="plus.png" /> Menu4</div>
+
+
+
+
+
+
+
+</div>
+
+
+
+</body>
+</html>

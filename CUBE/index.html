@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+
+<script type="text/javascript" src="jquery1.9.js"></script>
+
+</head>
+
+<body>
+<!--[if IE]>
+	
+<style type="text/css">
+.LeftFace {  background:#3C0;
+   filter: progid:DXImageTransform.Microsoft.Matrix( M11=1, M12=0, M21=-0.46630765815499875, M22=1, SizingMethod='auto expand');
+   margin-left: -0px; 
+   margin-top: -25px;
+ }
+.RightFace {  background:#F90;
+   -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(M11=1, M12=0, M21=-0.46630765815499875, M22=1, SizingMethod='auto expand')";
+   filter: progid:DXImageTransform.Microsoft.Matrix(M11=1, M12=0, M21=-0.46630765815499875, M22=1, SizingMethod='auto expand');
+   margin-left: -0px; 
+   margin-top: -25px;
+ }
+.TopFace { 
+   -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(M11=1, M12=-2.1445069205095546, M21=0, M22=1, SizingMethod='auto expand')";
+   filter: progid:DXImageTransform.Microsoft.Matrix( M11=1, M12=-2.1445069205095546, M21=0, M22=1, SizingMethod='auto expand');
+   margin-left: -53px; 
+   margin-top: -0px;
+}
+.BottomFace {
+   -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(M11=1, M12=-2.1445069205095546, M21=0, M22=1, SizingMethod='auto expand')";
+   filter: progid:DXImageTransform.Microsoft.Matrix( M11=1, M12=-2.1445069205095546, M21=0, M22=1, SizingMethod='auto expand');
+   margin-left: -53px; 
+   margin-top: -0px;
+}
+
+</style>
+
+<![endif]-->
+
+<style type="text/css">
+.cContainer { position:relative; margin:200px; }
+.LeftFace, .RightFace, .TopFace, .BottomFace, .backFace, .frontFace {  width:200px; height:200px; display:none; position:absolute; text-align:center; color:#FFF; font-weight:bold; }
+
+.LeftFace {  background:#3C0;
+	 -moz-transform:    skew(0deg, -15deg);
+     -o-transform:      skew(0deg, -25deg);
+     -webkit-transform: skew(0deg, -25deg);
+     transform:         skew(0deg, -25deg);
+
+ }
+.RightFace {  background:#F90;
+	 -moz-transform:    skew(0deg, -15deg);
+     -o-transform:      skew(0deg, -25deg);
+     -webkit-transform: skew(0deg, -25deg);
+     transform:         skew(0deg, -25deg);
+
+ }
+.TopFace {  background:#F30;
+	 -moz-transform:    skew(-65deg, 0deg);
+     -o-transform:      skew(-65deg, 0deg);
+     -webkit-transform: skew(-65deg, 0deg);
+     transform:         skew(-65deg, 0deg);
+}
+.BottomFace { background:#339;
+	 -moz-transform:    skew(-65deg, 0deg);
+     -o-transform:      skew(-65deg, 0deg);
+     -webkit-transform: skew(-65deg, 0deg);
+     transform:         skew(-65deg, 0deg);
+	 height: 50px;
+     left: 56px;
+}
+.backFace {  background:#666; left:100px; top:-45px; }
+.frontFace { background:#CCC; }
+
+</style>
+<script type="text/javascript">
+$(document).ready(function(){
+	durate = 1000;
+	facesArray = ["BottomFace", "RightFace", "backFace", "LeftFace", "TopFace", "frontFace"];
+	(function myfun(face1, face2, face3, face4, face5, face6){
+		face1 = facesArray[0]; face2 = facesArray[1]; face3 = facesArray[2]; face4 = facesArray[3]; face5 = facesArray[4]; face6 = facesArray[5]; 
+		setTimeout(function(){$("."+face1).css({"top":"0"}).animate({"top":"150px"},1000).show();}, durate/durate);
+		setTimeout(function(){$("."+face2).css({"top":"0", "width":"200px","left":"0px"}).animate({"top":"-25px", "width":"110px","left":"200px"}).show();}, durate*1);
+		setTimeout(function(){$("."+face3).css({"top":"0","left":"200px", "width":"0px"}).animate({"top":"-50px", "left":"110px", "width":"200px"}).show();}, durate*2);
+		setTimeout(function(){$("."+face4).css({"top":"160px", "width":"200px","height":"0px"}).animate({"top":"-25px", "width":"110px","height":"200px"}).show();}, durate*3);
+		setTimeout(function(){$("."+face5).css({"top":"100px", "left":"0px", "height":"0px"}).animate({"top":"-50px", "left":"56px",  "height":"50px"}).show();}, durate*4)
+		setTimeout(function(){$("."+face6).css({"width":"0px"}).animate({"width":"200px"}).show();}, durate*5);
+	})();
+	
+	
+});
+</script>
+<div class="cContainer">
+        <span class="LeftFace"></span>
+        <span class="BottomFace"> </span>
+        <span class="backFace"></span>
+        <span class="frontFace"></span>
+        <span class="TopFace"></span>
+        <span class="RightFace"></span>
+</div>
+</body>
+</html>
